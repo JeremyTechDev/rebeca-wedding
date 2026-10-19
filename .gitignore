@@ -1,0 +1,5 @@
+# Full-size originals and unused Figma exports (not needed by the site)
+_source/
+_unused/
+
+.DS_Store

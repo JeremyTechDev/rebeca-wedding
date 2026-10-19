@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel &amp; Stay · Heloisa &amp; Rebeca</title>
+<meta name="description" content="Heloisa &amp; Rebeca are getting married — May 1st, 2027 at Mansão Eventos, São José dos Campos.">
+<meta property="og:title" content="Heloisa &amp; Rebeca">
+<meta property="og:description" content="May 1st, 2027 · Mansão Eventos">
+<meta name="theme-color" content="#FAF1E0">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Datatype:wght@400&family=Lato:wght@400;900&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body data-title="meta.title.travel">
+<header class="site-header">
+  <a class="site-header__logo" href="index.html" aria-label="Heloisa &amp; Rebeca"><img src="assets/monogram.webp" alt="" width="56" height="56"></a>
+  <nav aria-label="Main" data-i18n-attr="aria-label:nav.label">
+    <ul class="nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="details.html" data-i18n="nav.details">Event Details</a></li>
+      <li><a href="travel.html" data-i18n="nav.travel" aria-current="page">Travel &amp; Stay</a></li>
+      <li><a href="rsvp.html" data-i18n="nav.rsvp">RSVP</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="lang-toggle" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="pt" aria-pressed="false">PT</button>
+  </div>
+</header>
+
+<main class="page travel">
+  <h1 class="page-title" data-i18n="travel.title">Travel &amp; Stay</h1>
+
+  <div class="travel__cols">
+    <section class="card travel__card">
+      <div class="t-block">
+        <svg class="icon" aria-hidden="true"><use href="#i-plane"/></svg>
+        <h2 class="t-block__title sc" data-i18n="travel.airport">Airport</h2>
+        <p class="t-block__lead" data-i18n="travel.airportLead">We recommend flying into GRU (Guarulhos)</p>
+        <ul>
+          <li data-i18n="travel.car">About 50 minutes by car to São José dos Campos</li>
+          <li data-i18n-html="travel.bus">About 1 hour by bus (<a href="https://www.passaromarron.com.br/" target="_blank" rel="noopener">Pássaro Marron</a>) to São José dos Campos</li>
+        </ul>
+      </div>
+      <hr class="rule">
+      <div class="t-block">
+        <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+        <h2 class="t-block__title sc" data-i18n="travel.getting">Getting there</h2>
+        <span class="t-block__label sc" data-i18n="travel.address">Address:</span>
+        <address>Estrada Municipal Joel de Paula, 137 - Eugênio de Melo<br>São José dos Campos - SP, 12200-200</address>
+        <a class="maps-link" href="https://maps.app.goo.gl/Cb82gmYGhv6BgRLB6" target="_blank" rel="noopener"><span data-i18n="maps">View on Google Maps</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.5082816690715!2d-45.7832419!3d-23.151642000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cc4dced2635053%3A0x62b9e936fc752ca0!2sMans%C3%A3o%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1791724488308!5m2!1spt-BR!2sbr" title="Map showing Mansão Eventos" data-i18n-attr="title:travel.mapTitle" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <hr class="rule">
+      <div class="t-block t-block--parking">
+        <svg class="icon" aria-hidden="true"><use href="#i-car"/></svg>
+        <h2 class="t-block__title sc" data-i18n="travel.parking">Parking</h2>
+        <p data-i18n="travel.parkingText">Free on-site parking is available. A staff member will be there to help guide you to your parking spot when you arrive.</p>
+      </div>
+      <img class="sketch sketch--travel" src="assets/illustrations/travel.svg" alt="" width="140" height="108">
+    </section>
+
+    <section class="card travel__card travel__card--stay">
+      <div class="t-block">
+        <svg class="icon" aria-hidden="true"><use href="#i-building"/></svg>
+        <h2 class="t-block__title sc" data-i18n="travel.stay">Where to stay</h2>
+        <p class="t-block__small" data-i18n="travel.stayLead">Approximate prices, check the hotel for current rates.</p>
+      </div>
+      <ul class="hotels" data-carousel>
+        <li class="hotel">
+          <span class="hotel__option sc" data-i18n="travel.option" data-i18n-vars='{"n":1}'>Option 1:</span>
+          <div class="hotel__row">
+            <div class="hotel__info">
+              <h3 class="hotel__name">Hotel Ibis</h3>
+              <span class="hotel__time"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="travel.minutes" data-i18n-vars='{"n":17}'>17 minutes from the venue</span></span>
+              <!-- TODO: replace with the hotel's own page -->
+              <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Ibis+São+José+dos+Campos" target="_blank" rel="noopener"><span data-i18n="travel.viewHotel">View Hotel</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+            <span class="hotel__price" data-i18n="travel.price" data-i18n-vars='{"usd":"94","brl":"473"}'>From 94 USD/night (R$473)</span>
+          </div>
+        </li>
+        <li class="hotel">
+          <span class="hotel__option sc" data-i18n="travel.option" data-i18n-vars='{"n":2}'>Option 2:</span>
+          <div class="hotel__row">
+            <div class="hotel__info">
+              <h3 class="hotel__name">Hotel Ibis Colinas <span class="badge sc" data-i18n="travel.best">Best price</span></h3>
+              <span class="hotel__time"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="travel.minutes" data-i18n-vars='{"n":19}'>19 minutes from the venue</span></span>
+              <!-- TODO: replace with the hotel's own page -->
+              <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Ibis+Colinas+São+José+dos+Campos" target="_blank" rel="noopener"><span data-i18n="travel.viewHotel">View Hotel</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+            <span class="hotel__price" data-i18n="travel.price" data-i18n-vars='{"usd":"92","brl":"462"}'>From 92 USD/night (R$462)</span>
+          </div>
+        </li>
+        <li class="hotel">
+          <span class="hotel__option sc" data-i18n="travel.option" data-i18n-vars='{"n":3}'>Option 3:</span>
+          <div class="hotel__row">
+            <div class="hotel__info">
+              <h3 class="hotel__name">Hotel Novotel <span class="badge sc" data-i18n="travel.closest">Closest</span></h3>
+              <span class="hotel__time"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="travel.minutes" data-i18n-vars='{"n":15}'>15 minutes from the venue</span></span>
+              <!-- TODO: replace with the hotel's own page -->
+              <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Novotel+São+José+dos+Campos" target="_blank" rel="noopener"><span data-i18n="travel.viewHotel">View Hotel</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+            <span class="hotel__price" data-i18n="travel.price" data-i18n-vars='{"usd":"168","brl":"838"}'>From 168 USD/night (R$838)</span>
+          </div>
+        </li>
+        <li class="hotel">
+          <span class="hotel__option sc" data-i18n="travel.option" data-i18n-vars='{"n":4}'>Option 4:</span>
+          <div class="hotel__row">
+            <div class="hotel__info">
+              <h3 class="hotel__name">Hotel Mercure</h3>
+              <span class="hotel__time"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="travel.minutes" data-i18n-vars='{"n":20}'>20 minutes from the venue</span></span>
+              <!-- TODO: replace with the hotel's own page -->
+              <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Mercure+São+José+dos+Campos" target="_blank" rel="noopener"><span data-i18n="travel.viewHotel">View Hotel</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+            <span class="hotel__price" data-i18n="travel.price" data-i18n-vars='{"usd":"220","brl":"1103"}'>From 220 USD/night (R$1103)</span>
+          </div>
+        </li>
+      </ul>
+      <div class="carousel-ctrl">
+        <div class="dots" data-carousel-dots aria-hidden="true"></div>
+        <div class="arrows">
+          <button type="button" data-carousel-prev aria-label="Previous hotel" data-i18n-attr="aria-label:travel.prev"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+          <button type="button" data-carousel-next aria-label="Next hotel" data-i18n-attr="aria-label:travel.next"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+        </div>
+      </div>
+      <img class="sketch sketch--postcards" src="assets/illustrations/postcards.svg" alt="" width="83" height="94">
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__art"><img src="assets/footer/travel.webp" alt="" width="72" height="43"></div>
+  <nav aria-label="Footer">
+    <ul class="nav">
+      <li><a href="details.html" data-i18n="nav.details">Event Details</a></li>
+      <li><a href="rsvp.html" data-i18n="nav.rsvp">RSVP</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="site-footer__info sc">
+    <span data-i18n="date.long">May 1st, 2027 at 3:30 PM</span><span class="sep" aria-hidden="true">|</span><span data-i18n="venue">Mansão Eventos</span><span class="sep" aria-hidden="true">|</span><a class="maps-link" href="https://maps.app.goo.gl/Cb82gmYGhv6BgRLB6" target="_blank" rel="noopener"><span data-i18n="maps">View on Google Maps</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>

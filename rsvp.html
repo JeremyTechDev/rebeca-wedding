@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSVP · Heloisa &amp; Rebeca</title>
+<meta name="description" content="Heloisa &amp; Rebeca are getting married — May 1st, 2027 at Mansão Eventos, São José dos Campos.">
+<meta property="og:title" content="Heloisa &amp; Rebeca">
+<meta property="og:description" content="May 1st, 2027 · Mansão Eventos">
+<meta name="theme-color" content="#FAF1E0">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Datatype:wght@400&family=Lato:wght@400;900&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/rsvp.js" defer></script>
+</head>
+<body data-title="meta.title.rsvp">
+<header class="site-header">
+  <a class="site-header__logo" href="index.html" aria-label="Heloisa &amp; Rebeca"><img src="assets/monogram.webp" alt="" width="56" height="56"></a>
+  <nav aria-label="Main" data-i18n-attr="aria-label:nav.label">
+    <ul class="nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="details.html" data-i18n="nav.details">Event Details</a></li>
+      <li><a href="travel.html" data-i18n="nav.travel">Travel &amp; Stay</a></li>
+      <li><a href="rsvp.html" data-i18n="nav.rsvp" aria-current="page">RSVP</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="lang-toggle" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="pt" aria-pressed="false">PT</button>
+  </div>
+</header>
+
+<main class="page rsvp">
+  <img class="sketch sketch--ring" src="assets/illustrations/ring.svg" alt="" width="132" height="116">
+  <img class="sketch sketch--heart" src="assets/illustrations/heart-flourish.svg" alt="" width="120" height="91">
+
+  <div class="rsvp__head">
+    <h1 class="page-title" data-i18n="rsvp.title">RSVP</h1>
+    <p class="rsvp__lead" data-i18n-html="rsvp.lead">Kindly RSVP by <em>March, 30th</em>. We can't wait to celebrate with you!</p>
+  </div>
+
+  <!-- Not connected yet: see the TODO in js/rsvp.js -->
+  <form class="card rsvp-card" data-rsvp novalidate>
+    <p class="rsvp-card__quote" data-i18n="rsvp.quote">“We're so excited to share this celebration with our loved ones. Explore the details, let us know you're coming, and get ready for a beautiful day filled with love, laughter, and joy.”</p>
+    <p class="rsvp-card__sign">Heloisa &amp; Rebeca</p>
+
+    <div class="guests" data-guests>
+      <label class="guests__label" for="name" data-i18n="rsvp.name">Name</label>
+      <div class="guest">
+        <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" data-i18n-attr="placeholder:rsvp.placeholder">
+        <button type="button" class="link-btn link-btn--add" data-add-guest><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="rsvp.add">Add guest name</span></button>
+      </div>
+    </div>
+
+    <fieldset class="attend">
+      <legend class="sc" data-i18n="rsvp.attending">Will you be attending?</legend>
+      <div class="attend__choices">
+        <label class="choice"><input type="radio" name="attending" value="yes"><span data-i18n="rsvp.yes">Yes</span></label>
+        <label class="choice choice--no"><input type="radio" name="attending" value="no"><span data-i18n="rsvp.no">No</span></label>
+      </div>
+    </fieldset>
+
+    <div class="reaction reaction--yes" data-reaction="yes">
+      <span class="meme meme--a" data-i18n="rsvp.yesA">*happy*</span>
+      <img src="assets/cats/rsvp-yes.webp" alt="" width="217" height="127">
+      <span class="meme meme--b" data-i18n="rsvp.yesB">made the right choice</span>
+    </div>
+    <div class="reaction reaction--no" data-reaction="no">
+      <span class="meme meme--a" data-i18n="rsvp.noA">very disappointing...</span>
+      <img src="assets/cats/rsvp-no.webp" alt="" width="234" height="130">
+      <span class="meme meme--b" data-i18n="rsvp.noB">*judging*</span>
+    </div>
+
+    <button type="submit" class="btn btn--send" data-i18n="rsvp.send">Send RSVP</button>
+    <p class="form-note" data-note role="status" aria-live="polite"></p>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__art"><img src="assets/footer/rsvp.webp" alt="" width="64" height="39"></div>
+  <nav aria-label="Footer">
+    <ul class="nav">
+      <li><a href="details.html" data-i18n="nav.details">Event Details</a></li>
+      <li><a href="travel.html" data-i18n="nav.travel">Travel &amp; Stay</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <div class="site-footer__info sc">
+    <span data-i18n="date.long">May 1st, 2027 at 3:30 PM</span><span class="sep" aria-hidden="true">|</span><span data-i18n="venue">Mansão Eventos</span><span class="sep" aria-hidden="true">|</span><a class="maps-link" href="https://maps.app.goo.gl/Cb82gmYGhv6BgRLB6" target="_blank" rel="noopener"><span data-i18n="maps">View on Google Maps</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+  </div>
+</footer>
+</body>
+</html>
