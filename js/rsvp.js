@@ -82,7 +82,9 @@
       if (d > bestDist) { bestDist = d; best = [x, y]; }
     }
     tx = Math.round(best[0]); ty = Math.round(best[1]);
-    noLabel.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+    // Rects are in screen pixels; translate() is in CSS pixels, which differ when the page is zoomed.
+    var z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--z')) || 1;
+    noLabel.style.transform = 'translate(' + (tx / z) + 'px,' + (ty / z) + 'px)';
     return true;
   }
 
