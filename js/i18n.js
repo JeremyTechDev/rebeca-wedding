@@ -13,7 +13,6 @@ window.I18N = {
     'nav.travel': 'Travel & Stay',
     'nav.rsvp': 'RSVP',
     'nav.faq': 'FAQ',
-    'nav.gifts': 'Gifts',
     'nav.label': 'Main',
     'lang.label': 'Language',
 
@@ -94,6 +93,9 @@ window.I18N = {
     'rsvp.needName': 'Please add your name first.',
     'rsvp.needChoice': 'Please let us know if you\'ll be attending.',
     'rsvp.notOpen': 'Thank you! Online RSVPs aren\'t open just yet — we\'ll let you know as soon as they are.',
+    'rsvp.sending': 'Sending…',
+    'rsvp.success': 'Thank you! Your RSVP has been received.',
+    'rsvp.error': 'Something went wrong sending your RSVP — please try again.',
 
     'faq.title': 'FAQ',
     'faq.q1': 'Is this an adults-only event?',
@@ -126,7 +128,6 @@ window.I18N = {
     'nav.travel': 'Viagem & Estadia',
     'nav.rsvp': 'RSVP',
     'nav.faq': 'Perguntas Frequentes',
-    'nav.gifts': 'Presentes',
     'nav.label': 'Principal',
     'lang.label': 'Idioma',
 
@@ -207,6 +208,9 @@ window.I18N = {
     'rsvp.needName': 'Por favor, preencha o seu nome.',
     'rsvp.needChoice': 'Por favor, nos diga se você irá comparecer.',
     'rsvp.notOpen': 'Obrigada! As confirmações on-line ainda não estão abertas — avisaremos assim que estiverem.',
+    'rsvp.sending': 'Enviando…',
+    'rsvp.success': 'Obrigada! Sua confirmação foi recebida.',
+    'rsvp.error': 'Algo deu errado ao enviar sua confirmação — por favor, tente novamente.',
 
     'faq.title': 'Perguntas Frequentes',
     'faq.q1': 'É um evento só para adultos?',

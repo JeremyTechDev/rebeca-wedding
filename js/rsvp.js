@@ -5,6 +5,11 @@
   var form = document.querySelector('[data-rsvp]');
   if (!form || !site) return;
 
+  // Google Apps Script Web App URL (Extensions > Apps Script on the response
+  // sheet, "doPost" that appends a row, deployed with access "Anyone").
+  // Left blank until that's set up — see setup notes shared alongside this change.
+  var ENDPOINT_URL = '';
+
   var guestList = form.querySelector('[data-guests]');
   var addBtn = form.querySelector('[data-add-guest]');
   var note = form.querySelector('[data-note]');
@@ -143,8 +148,28 @@
     }
     if (!choice) { setNote('rsvp.needChoice'); return; }
 
-    // TODO: endpoint — RSVPs aren't connected yet. When a form service is chosen
-    // (Formspree, Tally, Google Apps Script…), POST new FormData(form) here.
-    setNote('rsvp.notOpen');
+    if (!ENDPOINT_URL) {
+      setNote('rsvp.notOpen');
+      return;
+    }
+
+    var sendBtn = form.querySelector('.btn--send');
+    sendBtn.disabled = true;
+    setNote('rsvp.sending');
+
+    // The Apps Script redirect means the response itself isn't readable from here
+    // (opaque, no-cors) — a fetch that doesn't throw is as much confirmation as a
+    // static site gets, which is the standard way to post into a Sheet like this.
+    fetch(ENDPOINT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams(new FormData(form))
+    }).then(function () {
+      setNote('rsvp.success');
+      form.querySelectorAll('input, button').forEach(function (el) { el.disabled = true; });
+    }).catch(function () {
+      setNote('rsvp.error');
+      sendBtn.disabled = false;
+    });
   });
 })();
