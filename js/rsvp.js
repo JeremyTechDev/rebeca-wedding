@@ -51,32 +51,45 @@
     reactions.yes.classList.toggle('is-shown', v === 'yes');
     reactions.no.classList.toggle('is-shown', v === 'no');
     if (v === 'no') { escapesLeft = 0; tx = ty = 0; noLabel.style.transform = ''; }   // caught it: slide home
+    noLabel.classList.remove('is-catchable');
     setNote(null);
   });
 
   /* ── The "No" button runs away 2–3 times (designer's note), then gives up ── */
   var noLabel = form.querySelector('.choice--no');
   var yesLabel = form.querySelector('.choice:not(.choice--no)');
-  var card = form.closest('.rsvp-card') || form;
+  var header = document.querySelector('.site-header');
+  var footer = document.querySelector('.site-footer');
   var escapesLeft = 2 + Math.round(Math.random());   // 2 or 3
   var tx = 0, ty = 0;
+  // The label's own un-transformed position, read once up front: re-deriving it later from
+  // getBoundingClientRect() would be wrong mid-transition (the rect briefly lags the target
+  // while the .28s slide is still playing), which could otherwise send two escapes in quick
+  // succession (a fast flick, a tap right after a hover) wildly off target.
+  var homeRect = noLabel.getBoundingClientRect();
+  var baseLeft = homeRect.left, baseTop = homeRect.top;
+  var labelWidth = homeRect.width, labelHeight = homeRect.height;
 
   function escape() {
     if (escapesLeft <= 0) return false;
     escapesLeft -= 1;
-    var c = card.getBoundingClientRect();
-    var r = noLabel.getBoundingClientRect();
-    var baseLeft = r.left - tx, baseTop = r.top - ty;
-    // Stay inside the card, at or below the button row (never over the heading), clear of "Yes".
-    var minX = c.left + 16 - baseLeft, maxX = c.right - 16 - r.width - baseLeft;
-    var minY = 0, maxY = Math.max(0, Math.min(c.bottom - 16 - r.height - baseTop, 60));
+    // Roam anywhere in the CURRENTLY VISIBLE viewport — diagonally, outside the card — but
+    // stay clear of the header/footer chrome and never land on top of "Yes". Clamped to
+    // window.innerHeight so that on tall, scrollable pages (mobile/tablet) it never picks a
+    // spot above or below the fold — same "never needs a scroll to find it" rule as desktop.
+    var margin = 16;
+    // Extra headroom above: the "you can click it now" tooltip pops up above the button.
+    var topBound = Math.max(0, header ? header.getBoundingClientRect().bottom : 0) + margin + 54;
+    var bottomBound = Math.min(window.innerHeight, footer ? footer.getBoundingClientRect().top : window.innerHeight) - margin;
+    var minX = margin - baseLeft, maxX = window.innerWidth - margin - labelWidth - baseLeft;
+    var minY = topBound - baseTop, maxY = Math.max(topBound, bottomBound - labelHeight) - baseTop;
     var y0 = yesLabel.getBoundingClientRect();
     var best = [tx, ty], bestDist = -1;
     for (var i = 0; i < 24; i++) {
       var x = minX + Math.random() * (maxX - minX);
       var y = minY + Math.random() * (maxY - minY);
-      var left = baseLeft + x, top = baseTop + y;
-      var hitsYes = left < y0.right + 12 && left + r.width > y0.left - 12 && top < y0.bottom + 8 && top + r.height > y0.top - 8;
+      var left = baseLeft + x, candidateTop = baseTop + y;
+      var hitsYes = left < y0.right + 12 && left + labelWidth > y0.left - 12 && candidateTop < y0.bottom + 8 && candidateTop + labelHeight > y0.top - 8;
       if (hitsYes) continue;
       var d = Math.hypot(x - tx, y - ty);
       if (d > bestDist) { bestDist = d; best = [x, y]; }
@@ -85,13 +98,23 @@
     // Rects are in screen pixels; translate() is in CSS pixels, which differ when the page is zoomed.
     var z = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--z')) || 1;
     noLabel.style.transform = 'translate(' + (tx / z) + 'px,' + (ty / z) + 'px)';
+    // Last dodge used up: let them know the next click/tap will land.
+    if (escapesLeft === 0) noLabel.classList.add('is-catchable');
     return true;
   }
 
-  // Mouse: dodge as the cursor arrives. Touch/pen: dodge on the first taps.
+  // Mouse: dodge as the cursor arrives (hover reveals it before the click even happens).
   noLabel.addEventListener('pointerenter', function (e) {
     if (e.pointerType === 'mouse') escape();
   });
+  // Touch/pen: there's no hover, so dodge right on first contact — preventing the
+  // default here stops the compatibility click, same as it looks on desktop (a near-miss).
+  noLabel.addEventListener('touchstart', function (e) {
+    if (escapesLeft > 0) {
+      e.preventDefault();
+      escape();
+    }
+  }, { passive: false });
   noLabel.addEventListener('click', function (e) {
     // e.detail === 0 means keyboard activation: never block keyboard users.
     if (e.detail > 0 && escapesLeft > 0) {

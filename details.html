@@ -7,12 +7,12 @@
 <meta name="description" content="Heloisa &amp; Rebeca are getting married — May 1st, 2027 at Mansão Eventos, São José dos Campos.">
 <meta property="og:title" content="Heloisa &amp; Rebeca">
 <meta property="og:description" content="May 1st, 2027 · Mansão Eventos">
-<meta name="theme-color" content="#FAF1E0">
+<meta name="theme-color" content="#F1EAD9">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Datatype:wght@400&family=Lato:wght@400;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Anton&family=Cardo:ital,wght@0,400;0,700;1,400&family=Datatype:wght@400&family=Lato:wght@400;900&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <script src="js/i18n.js" defer></script>
 <script src="js/main.js" defer></script>
@@ -37,60 +37,67 @@
 <main class="page details">
   <h1 class="page-title" data-i18n="details.title">The Details</h1>
 
-  <div class="details__cards">
-    <img class="peek peek--left" src="assets/cats/salem.webp" alt="" width="69" height="104">
-    <section class="card when-where">
-      <div class="info-block">
-        <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
-        <h2 class="info-block__title sc" data-i18n="details.when">When</h2>
-        <span class="info-block__main" data-i18n="details.whenDate">Saturday, May 1st, 2027</span>
-        <span class="info-block__sub" data-i18n="details.whenTime">3:30 PM</span>
-      </div>
-      <span class="vrule" aria-hidden="true"></span>
-      <div class="info-block">
-        <svg class="icon" aria-hidden="true"><use href="#i-pin-heart"/></svg>
-        <h2 class="info-block__title sc" data-i18n="details.where">Where</h2>
-        <span class="info-block__main" data-i18n="venue">Mansão Eventos</span>
-        <a class="maps-link" href="https://maps.app.goo.gl/Cb82gmYGhv6BgRLB6" target="_blank" rel="noopener"><span data-i18n="maps">View on Google Maps</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
-      </div>
-    </section>
-    <section class="card itinerary">
-      <h2 class="itinerary__title sc" data-i18n="details.itinerary">Itinerary</h2>
-      <ol class="itinerary__list">
-        <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t1">3:30 PM</span><span class="itinerary__what" data-i18n="details.e1">Ceremony</span></li>
-        <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t2">5:00 PM</span><span class="itinerary__what" data-i18n="details.e2">Cocktail Hour</span></li>
-        <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t3">5:30 PM onward</span><span class="itinerary__what" data-i18n="details.e3">Reception &amp; Party</span></li>
-      </ol>
-    </section>
-    <img class="peek peek--right" src="assets/cats/cleo.webp" alt="" width="69" height="104">
-  </div>
+  <div class="details__split">
+    <div class="daybar-wrap">
+      <img class="peek peek--left" src="assets/cats/salem.webp" alt="" width="69" height="104">
+      <section class="card daybar">
+        <div class="daybar__info">
+          <div class="info-block info-block--row">
+            <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+            <div class="info-block__text">
+              <h2 class="info-block__title sc" data-i18n="details.when">When</h2>
+              <span class="info-block__main" data-i18n="details.whenDate">Saturday, May 1st, 2027</span>
+            </div>
+          </div>
+          <hr class="rule" aria-hidden="true">
+          <div class="info-block info-block--row">
+            <svg class="icon" aria-hidden="true"><use href="#i-pin-heart"/></svg>
+            <div class="info-block__text">
+              <h2 class="info-block__title sc" data-i18n="details.where">Where</h2>
+              <span class="info-block__main" data-i18n="venue">Mansão Eventos</span>
+              <a class="maps-link" href="https://maps.app.goo.gl/Cb82gmYGhv6BgRLB6" target="_blank" rel="noopener"><span data-i18n="maps">View on Google Maps</span><svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <hr class="daybar__rule" aria-hidden="true">
+        <div class="daybar__timeline">
+          <h2 class="itinerary__title sc" data-i18n="details.itinerary">Itinerary</h2>
+          <ol class="itinerary__list">
+            <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t1">3:30 PM</span><span class="itinerary__what" data-i18n="details.e1">Ceremony</span></li>
+            <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t2">5:00 PM</span><span class="itinerary__what" data-i18n="details.e2">Cocktail Hour</span></li>
+            <li class="itinerary__item"><span class="itinerary__time" data-i18n="details.t3">5:30 PM onward</span><span class="itinerary__what" data-i18n="details.e3">Reception &amp; Party</span></li>
+          </ol>
+        </div>
+      </section>
+      <img class="peek peek--right" src="assets/cats/cleo.webp" alt="" width="69" height="104">
+    </div>
 
-  <hr class="rule details__divider">
+    <section class="card dress">
+      <h2 class="section-title sc"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg><span data-i18n="details.dress">Dress code</span></h2>
 
-  <section class="dress">
-    <h2 class="section-title sc"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg><span data-i18n="details.dress">Dress code</span></h2>
-    <div class="dress__row">
-      <div class="dress__rule">
-        <p class="dress__rule-title" data-i18n-html="details.rule1"><b>Rule #1</b>: Do <strong>NOT</strong> Wear</p>
-        <p data-i18n="details.rule1sub">We kindly ask you to avoid</p>
+      <div class="dress__forbidden">
+        <p class="dress__forbidden-title" data-i18n-html="details.forbidTitle">Please do <strong>NOT</strong> wear:</p>
         <ul class="swatches">
           <li class="swatch sc" style="--c:#FFFFFF" data-i18n="details.white">White</li>
           <li class="swatch sc" style="--c:#F58220" data-i18n="details.orange">Orange</li>
           <li class="swatch sc" style="--c:#D81B72" data-i18n="details.pink">Pink</li>
         </ul>
+        <p class="dress__forbidden-note" data-i18n="details.colorNote">Any other color is totally welcome!</p>
       </div>
-      <img class="dress__art" src="assets/dresscode.webp" width="463" height="311" alt="Illustration of guests in garden-party outfits in green, yellow and blue" data-i18n-attr="alt:details.art">
-      <div class="dress__rule">
-        <p class="dress__rule-title" data-i18n-html="details.rule2"><b>Rule #2</b>: Color palette for guests</p>
-        <p data-i18n="details.rule2sub">Semi-formal, garden party style</p>
-        <ul class="swatches">
-          <li class="swatch sc" style="--c:#93915F" data-i18n="details.green">Green</li>
-          <li class="swatch sc" style="--c:#FAD77C" data-i18n="details.yellow">Yellow</li>
-          <li class="swatch sc" style="--c:#D8DBDE" data-i18n="details.blue">Blue</li>
+
+      <hr class="dress__divider" aria-hidden="true">
+
+      <div class="dress__guide">
+        <h3 class="dress__guide-title sc" data-i18n="details.guideTitle">Style Guide</h3>
+        <ul class="dress__tips">
+          <li data-i18n="details.tip1">Semi-formal, garden party style.</li>
+          <li data-i18n="details.tip2">It's fall in Brazil, so expect mild weather — not too hot, not too cold.</li>
+          <li data-i18n="details.tip3">The celebration is outdoors on grass, so skip thin heels or stilettos — block heels or comfortable shoes are best.</li>
+          <li data-i18n="details.tip4">For dresses and skirts, we recommend long over short.</li>
         </ul>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <footer class="site-footer">
