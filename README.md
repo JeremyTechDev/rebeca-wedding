@@ -24,9 +24,8 @@ Note: the clean URLs (`/home`, `/eventdetails`, …) rely on GitHub Pages' exten
 serving — a plain local server (like the one above) needs the `.html` suffix instead.
 
 ## Still to do
-- **RSVP isn't connected yet.** It POSTs to a Google Apps Script Web App when `ENDPOINT_URL`
-  is set in `js/rsvp.js` (falls back to a "not open yet" note until then) — see the setup
-  steps shared alongside that change for creating the Sheet + Apps Script deployment.
+- **RSVP responses** land as new rows in a Google Sheet via a Google Apps Script Web App
+  (`ENDPOINT_URL` in `js/rsvp.js`). Download/filter the guest list from that Sheet directly.
 - **"View Hotel" links** point to Google Maps searches — swap in each hotel's real page (`travelandstay.html`).
 - **Pássaro Marron link** goes to passaromarron.com.br — confirm it's the right page.
 - **FAQ answers 2–8** were written by Claude from details elsewhere on the site (only the adults-only answer was in the design). Please review in `js/i18n.js` — especially rain plans, plus-ones and the contact answer.

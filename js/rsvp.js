@@ -7,8 +7,7 @@
 
   // Google Apps Script Web App URL (Extensions > Apps Script on the response
   // sheet, "doPost" that appends a row, deployed with access "Anyone").
-  // Left blank until that's set up — see setup notes shared alongside this change.
-  var ENDPOINT_URL = '';
+  var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxjfH_oTF9cBq9eTwuhEkEqmc7oXZkGfhpB4Hq0R-2iPVneuvXXBW4CTd9ypyo74WaR/exec';
 
   var guestList = form.querySelector('[data-guests]');
   var addBtn = form.querySelector('[data-add-guest]');
