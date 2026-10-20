@@ -694,8 +694,8 @@ button { font: inherit; color: inherit; }
   .details { gap: 24px; }
   .daybar { width: 100%; padding: 20px; }
   .peek--left, .peek--right { bottom: auto; width: 46px; height: auto; z-index: 3; }
-  .peek--left { left: -8px; top: -52px; }
-  .peek--right { right: -6px; top: -48px; }
+  .peek--left { left: -8px; top: 192px; }
+  .peek--right { right: -6px; top: 188px; }
   .daybar__timeline { width: 100%; align-items: center; }
   .itinerary__list { flex-direction: column; gap: 14px; }
   .itinerary__item { width: auto; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; text-align: left; min-width: 240px; }
