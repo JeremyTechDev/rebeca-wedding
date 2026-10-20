@@ -13,6 +13,7 @@ window.I18N = {
     'nav.travel': 'Travel & Stay',
     'nav.rsvp': 'RSVP',
     'nav.faq': 'FAQ',
+    'nav.gifts': 'Gifts',
     'nav.label': 'Main',
     'lang.label': 'Language',
 
@@ -125,6 +126,7 @@ window.I18N = {
     'nav.travel': 'Viagem & Estadia',
     'nav.rsvp': 'RSVP',
     'nav.faq': 'Perguntas Frequentes',
+    'nav.gifts': 'Presentes',
     'nav.label': 'Principal',
     'lang.label': 'Idioma',
 
