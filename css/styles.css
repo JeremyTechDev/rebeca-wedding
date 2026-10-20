@@ -415,7 +415,7 @@ button { font: inherit; color: inherit; }
 
 .travel { display: flex; flex-direction: column; align-items: center; gap: 44px; font-family: var(--font-serif); }
 .travel__cols { display: flex; justify-content: center; gap: 44px; width: 100%; }
-.travel__card { position: relative; width: 500px; padding: 24px; display: flex; flex-direction: column; gap: 24px; }
+.travel__card { position: relative; width: 500px; padding: 24px; display: flex; flex-direction: column; gap: 24px; overflow: hidden; }
 .travel__card--stay { justify-content: space-between; gap: 34px; }
 
 .t-block { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; color: var(--gray); }
@@ -693,8 +693,9 @@ button { font: inherit; color: inherit; }
 
   .details { gap: 24px; }
   .daybar { width: 100%; padding: 20px; }
-  .peek--left { left: -8px; bottom: -26px; width: 46px; height: auto; }
-  .peek--right { right: -6px; bottom: -22px; width: 46px; height: auto; }
+  .peek--left, .peek--right { bottom: auto; width: 46px; height: auto; z-index: 3; }
+  .peek--left { left: -8px; top: -52px; }
+  .peek--right { right: -6px; top: -48px; }
   .daybar__timeline { width: 100%; align-items: center; }
   .itinerary__list { flex-direction: column; gap: 14px; }
   .itinerary__item { width: auto; flex-direction: row; justify-content: space-between; align-items: baseline; gap: 24px; text-align: left; min-width: 240px; }
@@ -718,6 +719,7 @@ button { font: inherit; color: inherit; }
     gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
     scrollbar-width: none;
     margin: 0 -20px;
     padding: 0 20px;
@@ -734,7 +736,7 @@ button { font: inherit; color: inherit; }
   .dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--blush); transition: background .2s; }
   .dots span.is-active { background: var(--fuchsia); }
   .arrows { display: flex; gap: 12px; }
-  .arrows button { width: 32px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--blush); color: var(--fuchsia); cursor: pointer; }
+  .arrows button { width: 32px; height: 32px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--blush); color: var(--fuchsia); cursor: pointer; }
   .arrows button:disabled { opacity: .4; cursor: default; }
 
   .rsvp { gap: 24px; min-height: 0; }
