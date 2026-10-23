@@ -113,7 +113,7 @@ window.I18N = {
     'faq.q7': 'What time should I arrive?',
     'faq.a7': 'Please arrive by 3:00 PM so you\'re settled in before the ceremony begins at 3:30 PM.',
     'faq.q8': 'Who do I contact with questions?',
-    'faq.a8': 'Reach out to Heloisa or Rebeca directly — we\'re happy to help!'
+    'faq.a8': 'Reach out to our wedding planner, Grazi Leite, at <a href="tel:+5511945171905">+55 11 94517-1905</a> — she\'s happy to help!'
   },
 
   pt: {
@@ -228,6 +228,6 @@ window.I18N = {
     'faq.q7': 'Que horas devo chegar?',
     'faq.a7': 'Chegue até as 15h para estar acomodado antes do início da cerimônia, às 15h30.',
     'faq.q8': 'Com quem eu devo entrar em contato em caso de dúvidas?',
-    'faq.a8': 'Fale diretamente com a Heloisa ou a Rebeca — ficaremos felizes em ajudar!'
+    'faq.a8': 'Fale com a nossa cerimonialista, Grazi Leite, pelo telefone <a href="tel:+5511945171905">+55 11 94517-1905</a> — ela terá o maior prazer em ajudar!'
   }
 };
