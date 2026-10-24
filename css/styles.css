@@ -240,7 +240,6 @@ button { font: inherit; color: inherit; }
 .btn:hover { filter: brightness(1.06); }
 .btn:active { transform: translateY(1px); }
 .btn--rsvp { min-width: 128px; background: var(--fuchsia); color: var(--white); }
-.btn--send { width: 240px; background: var(--tangerine); color: var(--white); }
 
 :focus-visible { outline: 2px solid var(--fuchsia); outline-offset: 3px; }
 
@@ -483,41 +482,6 @@ button { font: inherit; color: inherit; }
 .rsvp-card__quote { margin: 0; font-family: var(--font-serif); font-style: italic; font-size: 14px; line-height: 18px; text-align: center; color: #000; }
 .rsvp-card__sign { margin: -8px 0 0; font-size: 14px; line-height: 17px; color: var(--berry); }
 
-.guests { width: 100%; display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; }
-.guests legend, .guests__label { padding: 0; margin-bottom: 8px; font-size: 18px; line-height: 22px; color: #000; }
-.guest { display: flex; align-items: center; gap: 8px; }
-.guest input {
-  flex: 0 1 546px;
-  min-width: 0;
-  height: 44px;
-  padding: 10px 14px;
-  border: 1px solid var(--tangerine);
-  border-radius: var(--radius);
-  background: var(--white);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--ink);
-}
-.guest input::placeholder { color: var(--gray); }
-.guest input:focus { outline: none; border-color: var(--fuchsia); box-shadow: 0 0 0 3px rgba(216, 27, 114, .15); }
-.guest input[aria-invalid="true"] { border-color: var(--fuchsia); }
-.link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 14px;
-  line-height: 17px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-.link-btn--add { color: var(--fuchsia); }
-.link-btn--del { color: var(--ink); }
-.link-btn:hover span { text-decoration: underline; }
-
 .attend { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; margin: 0; padding: 0; border: 0; min-inline-size: 0; }
 .attend legend { float: left; width: 100%; padding: 0; margin: 0 0 14px; font-size: 24px; line-height: 29px; text-align: center; color: #000; }
 .attend__choices { clear: both; position: relative; display: flex; gap: 14px; }
@@ -587,14 +551,14 @@ button { font: inherit; color: inherit; }
 }
 .reaction--yes .meme--a { right: calc(100% - 125px); top: 6px; }
 .reaction--yes .meme--b { left: 293px; top: 78px; }
-.btn--send { display: none; }
-.has-choice .btn--send { display: inline-flex; }
 .reaction--no .meme--a { right: calc(100% - 118px); top: 16px; }
 .reaction--no .meme--b { left: 303px; top: 76px; }
 @keyframes pop { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
 
 .form-note { margin: -8px 0 0; min-height: 0; font-size: 16px; line-height: 21px; text-align: center; color: var(--berry); }
 .form-note:empty { display: none; }
+.rsvp-fallback { font-size: 14px; line-height: 17px; color: var(--fuchsia); text-decoration: underline; }
+.rsvp-fallback[hidden] { display: none; }
 
 /* ───────── FAQ ───────── */
 
@@ -743,15 +707,12 @@ button { font: inherit; color: inherit; }
   .sketch--ring { width: 50px; right: 14px; top: 14px; }
   .sketch--heart { display: none; }
   .rsvp-card { padding: 20px 16px; gap: 20px; }
-  .guest { flex-wrap: wrap; }
-  .guest input { flex: 1 1 100%; }
   .attend legend { font-size: 24px; line-height: 29px; }
   .reaction { height: auto; display: none; padding: 26px 0 30px; }
   .reaction.is-shown { display: flex; justify-content: center; }
   .reaction img, .reaction--no img { position: static; width: auto; height: 110px; }
   .reaction--yes .meme--a, .reaction--no .meme--a { right: auto; left: 0; top: 0; }
   .reaction--yes .meme--b, .reaction--no .meme--b { left: auto; right: 0; top: auto; bottom: 0; }
-  .btn--send { width: 100%; max-width: 240px; }
 
   .faq { gap: 24px; }
   .faq__card { padding: 20px 16px; }

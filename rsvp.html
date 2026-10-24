@@ -44,18 +44,9 @@
     <p class="rsvp__lead" data-i18n-html="rsvp.lead">Kindly RSVP by <em>March, 30th</em>. We can't wait to celebrate with you!</p>
   </div>
 
-  <!-- Not connected yet: see the TODO in js/rsvp.js -->
   <form class="card rsvp-card" data-rsvp novalidate>
     <p class="rsvp-card__quote" data-i18n="rsvp.quote">“We're so excited to share this celebration with our loved ones. Explore the details, let us know you're coming, and get ready for a beautiful day filled with love, laughter, and joy.”</p>
     <p class="rsvp-card__sign">Heloisa &amp; Rebeca</p>
-
-    <div class="guests" data-guests>
-      <label class="guests__label" for="name" data-i18n="rsvp.name">Name</label>
-      <div class="guest">
-        <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" data-i18n-attr="placeholder:rsvp.placeholder">
-        <button type="button" class="link-btn link-btn--add" data-add-guest><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span data-i18n="rsvp.add">Add guest name</span></button>
-      </div>
-    </div>
 
     <fieldset class="attend">
       <legend class="sc" data-i18n="rsvp.attending">Will you be attending?</legend>
@@ -76,8 +67,8 @@
       <span class="meme meme--b" data-i18n="rsvp.noB">*judging*</span>
     </div>
 
-    <button type="submit" class="btn btn--send" data-i18n="rsvp.send">Send RSVP</button>
     <p class="form-note" data-note role="status" aria-live="polite"></p>
+    <a class="rsvp-fallback" data-fallback-link href="https://assessoriavip.com.br/rsvpUnico/208b15b0-59d8-11f1-b9db-85b2b0fdb015" target="_blank" rel="noopener" hidden data-i18n="rsvp.fallbackLink">Open the RSVP page</a>
   </form>
 </main>
 

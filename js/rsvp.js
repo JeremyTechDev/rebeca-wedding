@@ -5,49 +5,19 @@
   var form = document.querySelector('[data-rsvp]');
   if (!form || !site) return;
 
-  // Google Apps Script Web App URL (Extensions > Apps Script on the response
-  // sheet, "doPost" that appends a row, deployed with access "Anyone").
-  var ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxjfH_oTF9cBq9eTwuhEkEqmc7oXZkGfhpB4Hq0R-2iPVneuvXXBW4CTd9ypyo74WaR/exec';
+  // The real RSVP (attending, guest names, etc.) is collected on the wedding
+  // planner's own form — this page just captures the first yes/no and routes
+  // guests there.
+  var EXTERNAL_RSVP_URL = 'https://assessoriavip.com.br/rsvpUnico/208b15b0-59d8-11f1-b9db-85b2b0fdb015';
 
-  var guestList = form.querySelector('[data-guests]');
-  var addBtn = form.querySelector('[data-add-guest]');
   var note = form.querySelector('[data-note]');
+  var fallbackLink = form.querySelector('[data-fallback-link]');
   var reactions = {
     yes: form.querySelector('[data-reaction="yes"]'),
     no: form.querySelector('[data-reaction="no"]')
   };
 
-  /* ── Guest rows ── */
-  var guestCount = 0;
-
-  function addGuest() {
-    guestCount += 1;
-    var id = 'guest-' + guestCount;
-    var row = document.createElement('div');
-    row.className = 'guest';
-    row.innerHTML =
-      '<label class="visually-hidden" for="' + id + '" data-i18n="rsvp.guestPlaceholder"></label>' +
-      '<input id="' + id + '" name="guests[]" type="text" autocomplete="off" data-i18n-attr="placeholder:rsvp.guestPlaceholder">' +
-      '<button type="button" class="link-btn link-btn--del" data-remove>' +
-      '<svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="rsvp.delete"></span></button>';
-    row.querySelector('label').textContent = site.t('rsvp.guestPlaceholder');
-    row.querySelector('input').placeholder = site.t('rsvp.guestPlaceholder');
-    row.querySelector('[data-i18n="rsvp.delete"]').textContent = site.t('rsvp.delete');
-    guestList.appendChild(row);
-    row.querySelector('input').focus();
-  }
-
-  addBtn.addEventListener('click', addGuest);
-  guestList.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-remove]');
-    if (!btn) return;
-    var row = btn.closest('.guest');
-    var prevInput = row.previousElementSibling && row.previousElementSibling.querySelector('input');
-    row.remove();
-    if (prevInput) prevInput.focus();
-  });
-
-  /* ── Yes / No reaction ── */
+  /* ── Yes / No reaction, then redirect to the wedding planner's RSVP form ── */
   form.addEventListener('change', function (e) {
     if (e.target.name !== 'attending') return;
     var v = e.target.value;
@@ -56,8 +26,30 @@
     reactions.no.classList.toggle('is-shown', v === 'no');
     if (v === 'no') { escapesLeft = 0; tx = ty = 0; noLabel.style.transform = ''; }   // caught it: slide home
     noLabel.classList.remove('is-catchable');
-    setNote(null);
+    form.querySelectorAll('input[name="attending"]').forEach(function (el) { el.disabled = true; });
+    startRedirectCountdown();
   });
+
+  function startRedirectCountdown() {
+    fallbackLink.hidden = false;
+    var count = 3;
+    setNoteText(site.t('rsvp.redirecting', { n: count }));
+    var timer = setInterval(function () {
+      count -= 1;
+      if (count > 0) {
+        setNoteText(site.t('rsvp.redirecting', { n: count }));
+      } else {
+        clearInterval(timer);
+        setNoteText(site.t('rsvp.redirected'));
+        window.open(EXTERNAL_RSVP_URL, '_blank', 'noopener');
+      }
+    }, 1000);
+  }
+
+  function setNoteText(text) {
+    note.removeAttribute('data-i18n');
+    note.textContent = text;
+  }
 
   /* ── The "No" button runs away 2–3 times (designer's note), then gives up ── */
   var noLabel = form.querySelector('.choice--no');
@@ -125,50 +117,5 @@
       e.preventDefault();
       escape();
     }
-  });
-
-  /* ── Submit (not connected yet) ── */
-  function setNote(key) {
-    if (!key) { note.textContent = ''; note.removeAttribute('data-i18n'); return; }
-    note.setAttribute('data-i18n', key);
-    note.textContent = site.t(key);
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = form.querySelector('#name');
-    var choice = form.querySelector('input[name="attending"]:checked');
-    name.removeAttribute('aria-invalid');
-    if (!name.value.trim()) {
-      name.setAttribute('aria-invalid', 'true');
-      name.focus();
-      setNote('rsvp.needName');
-      return;
-    }
-    if (!choice) { setNote('rsvp.needChoice'); return; }
-
-    if (!ENDPOINT_URL) {
-      setNote('rsvp.notOpen');
-      return;
-    }
-
-    var sendBtn = form.querySelector('.btn--send');
-    sendBtn.disabled = true;
-    setNote('rsvp.sending');
-
-    // The Apps Script redirect means the response itself isn't readable from here
-    // (opaque, no-cors) — a fetch that doesn't throw is as much confirmation as a
-    // static site gets, which is the standard way to post into a Sheet like this.
-    fetch(ENDPOINT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: new URLSearchParams(new FormData(form))
-    }).then(function () {
-      setNote('rsvp.success');
-      form.querySelectorAll('input, button').forEach(function (el) { el.disabled = true; });
-    }).catch(function () {
-      setNote('rsvp.error');
-      sendBtn.disabled = false;
-    });
   });
 })();
